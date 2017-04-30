@@ -1,6 +1,7 @@
 """ This application implements a plain Hello World webserver """
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
+import socket
 
 class TestHttpServerRequestHandler(BaseHTTPRequestHandler):
     """ Main class of our app """
@@ -22,21 +23,23 @@ class TestHttpServerRequestHandler(BaseHTTPRequestHandler):
 
 def run():
     """ Main execution block """
-    print('starting server...')
+    # print('starting server...')
 
     accs_hostname = os.getenv('HOSTNAME')
-    if accs_hostname is None:
-        accs_hostname = 'localhost'
-    print('HOSTNAME = ' + accs_hostname)
-    accs_port = os.getenv('PORT')
-    if accs_port is None:
-        accs_port = 9000
-    else:
-        accs_port = int(accs_port)
-    print('PORT = ' + str(accs_port))
+    # print('HOSTNAME = ' + accs_hostname)
+    # if accs_hostname is None:
+    #     accs_hostname = 'localhost'
+    # print('HOSTNAME = ' + accs_hostname)
+    # accs_port = os.getenv('PORT')
+    # print('PORT = ' + str(accs_port))
+    # if accs_port is None:
+    accs_port = 9000
+    # else:
+    #     accs_port = int(accs_port)
+    # print('PORT = ' + str(accs_port))
     server_address = (accs_hostname, accs_port)
     httpd = HTTPServer(server_address, TestHttpServerRequestHandler)
-    print('running server...')
+    # print('running server...')
     httpd.serve_forever()
 
 run()
