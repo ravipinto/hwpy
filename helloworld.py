@@ -1,13 +1,12 @@
 """ This application implements a plain Hello World webserver """
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
-import socket
 
 class TestHttpServerRequestHandler(BaseHTTPRequestHandler):
     """ Main class of our app """
 
     def do_GET(self):
-        """ GET """
+        """ HTTP GET method implementation """
         # Send response status code
         self.send_response(200)
 
