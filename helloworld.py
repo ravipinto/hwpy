@@ -25,17 +25,17 @@ def run():
     # print('starting server...')
 
     accs_hostname = os.getenv('HOSTNAME')
-    # print('HOSTNAME = ' + accs_hostname)
+    print('HOSTNAME = ' + accs_hostname)
     # if accs_hostname is None:
     #     accs_hostname = 'localhost'
     # print('HOSTNAME = ' + accs_hostname)
-    # accs_port = os.getenv('PORT')
-    # print('PORT = ' + str(accs_port))
-    # if accs_port is None:
-    accs_port = 9000
-    # else:
-    #     accs_port = int(accs_port)
-    # print('PORT = ' + str(accs_port))
+    accs_port = os.getenv('PORT')
+    print('PORT = ' + str(accs_port))
+    if accs_port is None:
+        accs_port = 9000
+    else:
+        accs_port = int(accs_port)
+    print('PORT = ' + str(accs_port))
     server_address = (accs_hostname, accs_port)
     httpd = HTTPServer(server_address, TestHttpServerRequestHandler)
     # print('running server...')
